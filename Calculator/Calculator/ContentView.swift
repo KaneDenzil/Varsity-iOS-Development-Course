@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum CalciButtons: String {
+enum CalculatorButtons: String {
     case one = "1"
     case two = "2"
     case three = "3"
@@ -62,7 +62,7 @@ struct ContentView: View {
     @State var runningNumber = 0
     @State var currentOperation: Operation = .none
     
-    let buttons: [[CalciButtons]] = [
+    let buttons: [[CalculatorButtons]] = [
         [.clear, .plusMinus, .percentage, .divide],
         [.seven, .eight, .nine, .multiply],
         [.four, .five, .six,.subtract],
@@ -109,7 +109,8 @@ struct ContentView: View {
             }
         }
     }
-    func onButtonPress(button: CalciButtons) {
+    func onButtonPress(button: CalculatorButtons) {
+
         switch button {
         case .add, .subtract, .multiply, .divide, .equal:
             self.runningNumber = Int(self.value) ?? 0
@@ -161,8 +162,7 @@ struct ContentView: View {
         }
         
     }
-
-    func buttonWidth(item: CalciButtons) -> CGFloat {
+    func buttonWidth(item: CalculatorButtons) -> CGFloat {
         if item == .zero {
             return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
         }
